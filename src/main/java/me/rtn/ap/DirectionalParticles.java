@@ -39,6 +39,7 @@ public class DirectionalParticles implements Listener {
                     loc.add(x,y,z);
 
                     loc.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, loc, 0, 0, 0, 0,1);
+                    loc.subtract(x,y,z);
                     if(t  > 30){
                         this.cancel();
                     }
