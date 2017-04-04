@@ -10,9 +10,9 @@ import java.util.stream.Stream;
  */
 public class Main extends JavaPlugin implements Listener {
 
-    private Main instance;
+    private static Main instance;
 
-    public Main getInstance() {
+    public static Main getInstance() {
         return instance;
     }
 

@@ -1,9 +1,12 @@
 package me.rtn.ap;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  * Created by George on 04-Apr-17 on Apr at 2:54 PM.
@@ -12,6 +15,22 @@ public class TestingGround implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
-        final Player player = event.getPlayer();
+        Player player = event.getPlayer();
+        Location loc = player.getLocation();
+
+        if(event.getAction() == Action.LEFT_CLICK_AIR){
+            new BukkitRunnable(){
+                public void run(){
+
+                    double t = 0;
+                    double r = 1;
+                    t = t + Math.PI/8;
+
+                    double x = r*Math.cos(t);
+                    double y = t;
+                    double z = r*Math.sin(t);
+                }
+            }.runTaskTimer(Main.getInstance(), 0, 1);
+        }
     }
 }
