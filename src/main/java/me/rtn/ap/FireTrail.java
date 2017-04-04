@@ -29,13 +29,13 @@ public class FireTrail implements Listener {
                     t = t + Math.PI/16;
 
                     double x = r*Math.cos(t);
-                    double y = 0.5*t;
+                    double y = Math.sin(t);
                     double z = r*Math.sin(t);
 
                     loc.add(x,y,z);
 
-                    loc.getWorld().spawnParticle(Particle.FLAME, loc, 0,0,0,0,1);
-                    loc.subtract(x,y,z);
+                    loc.getWorld().spawnParticle(Particle.FLAME, loc, 1,x,y,z,0);
+                    //loc.subtract(x,y,z);
                     if(t > Math.PI * 8){
                         this.cancel();
                     }
