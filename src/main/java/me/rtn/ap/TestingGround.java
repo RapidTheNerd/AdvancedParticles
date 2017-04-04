@@ -35,7 +35,7 @@ public class TestingGround implements Listener {
                     loc.add(x,y,z);
 
                     loc.getWorld().spawnParticle(Particle.FLAME, loc, 0,0,0,0,1);
-                    loc.subtract(x,y,z);
+                   // loc.subtract(x,y,z);
 
                     if(t > Math.PI * 4){
                         this.cancel();
