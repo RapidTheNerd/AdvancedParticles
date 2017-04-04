@@ -1,0 +1,6 @@
+name: Advanced Particles
+version: ${project.version}
+main: me.rtn.ironwars.Main
+load: STARTUP
+authors: [RapidTheNerd]
+description: who doesn't like messing with particles and maths?!
