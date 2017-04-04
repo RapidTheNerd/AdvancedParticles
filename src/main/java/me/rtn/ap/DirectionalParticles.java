@@ -27,19 +27,19 @@ public class DirectionalParticles implements Listener {
 
         if(event.getAction() == Action.LEFT_CLICK_AIR){
             new BukkitRunnable(){
-                double t = 0;
+                double t = 1;
 
                 @Override
                 public void run() {
 
                     double x = vec.getX() * t;
-                    double y = vec.getY() * t;
+                    double y = vec.getY() * t + 1.5;
                     double z = vec.getZ() * t;
 
                     loc.add(x,y,z);
 
                     loc.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, loc, 0, 0, 0, 0,1);
-                    loc.subtract(x,y,z);
+                    loc.subtract(vec)
                     if(t  > 30){
                         this.cancel();
                     }
