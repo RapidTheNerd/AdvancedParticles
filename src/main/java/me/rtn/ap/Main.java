@@ -21,7 +21,7 @@ public class Main extends JavaPlugin implements Listener {
 
         instance = this;
         Stream.of(
-                new TestingGround()
+                new FireTrail()
         ).forEach(listener -> getServer().getPluginManager().registerEvents(listener, this));
     }
 

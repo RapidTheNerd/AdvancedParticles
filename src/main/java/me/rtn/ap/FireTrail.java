@@ -12,7 +12,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /**
  * Created by George on 04-Apr-17 on Apr at 2:54 PM.
  */
-public class TestingGround implements Listener {
+public class FireTrail implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
@@ -25,19 +25,18 @@ public class TestingGround implements Listener {
                 public void run(){
 
                     double t = 0;
-                    double r = 1;
-                    t = t + Math.PI/8;
+                    double r = 2;
+                    t = t + Math.PI/16;
 
                     double x = r*Math.cos(t);
-                    double y = t;
+                    double y = 0.5*t;
                     double z = r*Math.sin(t);
 
                     loc.add(x,y,z);
 
                     loc.getWorld().spawnParticle(Particle.FLAME, loc, 0,0,0,0,1);
-                   // loc.subtract(x,y,z);
-
-                    if(t > Math.PI * 4){
+                    loc.subtract(x,y,z);
+                    if(t > Math.PI * 8){
                         this.cancel();
                     }
                 }
