@@ -34,7 +34,7 @@ public class FireTrail implements Listener {
 
                     loc.add(x,y,z);
 
-                    loc.getWorld().spawnParticle(Particle.FLAME, loc, 1,x,y,z,0);
+                    loc.getWorld().spawnParticle(Particle.FLAME, loc, 5,x,y,z,0);
                     //loc.subtract(x,y,z);
                     if(t > Math.PI * 8){
                         this.cancel();
