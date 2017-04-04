@@ -1,6 +1,7 @@
 package me.rtn.ap;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,6 +19,7 @@ public class TestingGround implements Listener {
         Player player = event.getPlayer();
         Location loc = player.getLocation();
 
+
         if(event.getAction() == Action.LEFT_CLICK_AIR){
             new BukkitRunnable(){
                 public void run(){
@@ -29,6 +31,15 @@ public class TestingGround implements Listener {
                     double x = r*Math.cos(t);
                     double y = t;
                     double z = r*Math.sin(t);
+
+                    loc.add(x,y,z);
+
+                    loc.getWorld().spawnParticle(Particle.FLAME, loc, 0,0,0,0,1);
+                    loc.subtract(x,y,z);
+
+                    if(t > Math.PI * 4){
+                        this.cancel();
+                    }
                 }
             }.runTaskTimer(Main.getInstance(), 0, 1);
         }
