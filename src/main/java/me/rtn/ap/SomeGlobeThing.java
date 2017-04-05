@@ -26,15 +26,23 @@ public class SomeGlobeThing implements Listener {
             new BukkitRunnable() {
 
                 double phi = 0;
-                double theta = 0;
+                double theta;
 
                 @Override
                 public void run() {
 
                     phi *= Math.PI /10;
 
+                    for(theta = 0; theta <= 2*Math.PI; theta+= Math.PI * 40){
+                        double radius = 1.5;
+                        double x = radius*Math.cos(theta) * Math.sin(phi);
+                        double y = radius*Math.cos(phi) + 1.5;
+                        double z = Math.sin(theta) * Math.sin(phi);
+
+                        loc.add(x,y,z);
+                    }
+
                     world.spawnParticle(Particle.DRIP_LAVA, loc, 0, 0, 0, 0, 1);
-                    
                 }
             }.runTaskTimer(Main.getInstance(), 0, 1);
         }

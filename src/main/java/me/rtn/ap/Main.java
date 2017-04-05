@@ -21,7 +21,7 @@ public class Main extends JavaPlugin implements Listener {
 
         instance = this;
         Stream.of(
-                new DirectionalParticles()
+                new SomeGlobeThing()
         ).forEach(listener -> getServer().getPluginManager().registerEvents(listener, this));
     }
 
